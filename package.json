@@ -1,0 +1,11 @@
+{
+  "name": "work-app",
+  "version": "1.0.0",
+  "scripts": {
+    "init-project": "yarn --cwd backend install && yarn --cwd backend run build && yarn --cwd frontend install",
+    "start": "concurrently \"yarn --cwd backend start\" \"yarn --cwd frontend start\""
+  },
+  "devDependencies": {
+    "concurrently": "^7.0.0"
+  }
+}

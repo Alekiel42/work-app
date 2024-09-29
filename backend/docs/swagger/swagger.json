@@ -1,0 +1,216 @@
+{
+	"openapi": "3.0.0",
+	"components": {
+		"examples": {},
+		"headers": {},
+		"parameters": {},
+		"requestBodies": {},
+		"responses": {},
+		"schemas": {
+			"Job": {
+				"properties": {
+					"id": {
+						"type": "string"
+					},
+					"link": {
+						"type": "string"
+					},
+					"title": {
+						"type": "string"
+					},
+					"description": {
+						"type": "string"
+					},
+					"publicationDate": {
+						"type": "string"
+					},
+					"coordinates": {
+						"type": "string"
+					},
+					"city": {
+						"type": "string"
+					},
+					"postalCode": {
+						"type": "string"
+					},
+					"department": {
+						"type": "string"
+					},
+					"region": {
+						"type": "string"
+					},
+					"sector": {
+						"type": "string"
+					},
+					"jobtitle": {
+						"type": "string"
+					},
+					"company": {
+						"type": "string"
+					},
+					"contractType": {
+						"items": {
+							"type": "string"
+						},
+						"type": "array"
+					},
+					"salary": {
+						"type": "string"
+					}
+				},
+				"required": [
+					"id",
+					"link",
+					"title",
+					"description",
+					"publicationDate",
+					"coordinates",
+					"city",
+					"postalCode",
+					"department",
+					"region",
+					"sector",
+					"jobtitle",
+					"company",
+					"contractType",
+					"salary"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"jobData": {
+				"properties": {
+					"total": {
+						"type": "number",
+						"format": "double"
+					},
+					"ads": {
+						"items": {
+							"$ref": "#/components/schemas/Job"
+						},
+						"type": "array"
+					}
+				},
+				"required": [
+					"total",
+					"ads"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"ResponseContent": {
+				"properties": {
+					"content": {
+						"$ref": "#/components/schemas/jobData"
+					}
+				},
+				"required": [
+					"content"
+				],
+				"type": "object",
+				"additionalProperties": false
+			}
+		},
+		"securitySchemes": {}
+	},
+	"info": {
+		"title": "backend",
+		"version": "1.0.0",
+		"license": {
+			"name": "Alexandra Bercoff"
+		},
+		"contact": {
+			"name": "Alexandra Bercoff"
+		}
+	},
+	"paths": {
+		"/api/v1/jobs/bordeaux": {
+			"get": {
+				"operationId": "GetJobs",
+				"responses": {
+					"200": {
+						"description": "Success: return jobs list",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/ResponseContent"
+								},
+								"examples": {
+									"Example 1": {
+										"value": {
+											"content": {
+												"total": 24,
+												"ads": [
+													{
+														"id": "42",
+														"link": "https://example.com/job/42",
+														"title": "Développeuse web confirmé",
+														"description": "Description du poste.",
+														"publicationDate": "2024-09-27",
+														"coordinates": "44.837789, -0.57918",
+														"city": "Bordeaux",
+														"postalCode": "33000",
+														"department": "33",
+														"region": "Nouvelle-Aquitaine",
+														"sector": "Tech",
+														"jobtitle": "Développeuse web",
+														"company": "Seekube",
+														"contractType": [
+															"CDI"
+														],
+														"salary": "3500€"
+													}
+												]
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				},
+				"description": "Retrieve a job's list",
+				"summary": "GetJobs: get job's list at Bordeaux from a job title",
+				"security": [],
+				"parameters": [
+					{
+						"description": "The job title",
+						"in": "query",
+						"name": "jobTitle",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"description": "The page number for pagination (default is 1)",
+						"in": "query",
+						"name": "page",
+						"required": false,
+						"schema": {
+							"default": 1,
+							"format": "double",
+							"type": "number"
+						}
+					},
+					{
+						"description": "The maximum number of job entries to return per page (default is 10).",
+						"in": "query",
+						"name": "limit",
+						"required": false,
+						"schema": {
+							"default": 10,
+							"format": "double",
+							"type": "number"
+						}
+					}
+				]
+			}
+		}
+	},
+	"servers": [
+		{
+			"url": "/"
+		}
+	]
+}

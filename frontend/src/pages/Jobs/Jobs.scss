@@ -1,0 +1,9 @@
+@import "../../styles/variables";
+
+.jobs {
+  &__title {
+    font-size: 2rem;
+    color: $color-title;
+    padding: 1rem;
+  }
+}

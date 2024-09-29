@@ -1,0 +1,27 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Alexandra Bercoff",
+  "license": "MIT",
+  "scripts": {
+    "build": "tsoa spec-and-routes && tsc --outDir build --experimentalDecorators",
+    "start": "node build/server.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.0",
+    "inversify": "^6.0.2",
+    "inversify-binding-decorators": "^4.0.0",
+    "tsoa": "^6.4.0"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.21",
+    "@types/node": "^22.7.0",
+    "typescript": "^5.6.2"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  }
+}

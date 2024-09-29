@@ -1,0 +1,14 @@
+.jobList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding: 0;
+
+  &__item {
+    width: 100%;
+
+    @media (min-width: 800px) {
+      width: calc(33.33% - 1rem);
+    }
+  }
+}

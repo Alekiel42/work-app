@@ -1,0 +1,47 @@
+@import "../../../styles/variables";
+
+.jobCard {
+  background-color: $color-background-card;
+  overflow: hidden;
+
+  &__header {
+    margin-bottom: 15px;
+  }
+
+  &__title {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: $color-title;
+  }
+
+  &__company {
+    font-size: 1.1em;
+    color: $color-title;
+  }
+
+  &__details {
+    margin-bottom: 15px;
+    font-size: 0.9em;
+    color: $color-text;
+  }
+
+  &__footer {
+    display: flex;
+    justify-content: center;
+  }
+
+  &__applyButton {
+    background-color: $color-highlight;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background-color: $color-highlight-dark;
+    }
+  }
+}
