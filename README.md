@@ -24,7 +24,13 @@ Run the following command:
 yarn install && yarn run init-project
 ```
 
-Create a `.env` file with value
+Create a `.env` file in `backend` folder with value :
+
+```bash
+PORT=3001
+TOKEN_SECRET=<your jobijoba secret>
+TOKEN_ID=<your jobijoba token id>
+```
 
 ### Command to start the project
 
